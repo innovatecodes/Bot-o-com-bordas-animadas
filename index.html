@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botão com Bordas Animadas</title>
+  <style>
+    /* Estilo do corpo da página */
+    body {
+      display: flex; /* Centraliza o conteúdo horizontalmente */
+      justify-content: center; /* Centraliza o conteúdo na horizontal */
+      align-items: center; /* Centraliza o conteúdo na vertical */
+      height: 100vh; /* Altura total da tela */
+      margin: 0; /* Remove margens padrão */
+      background-color: #1a012e; /* Define um fundo escuro para a página */
+    }
+
+    /* Estilo do botão principal */
+    .button {
+      position: relative; /* Necessário para posicionar os pseudo-elementos (::before e ::after) em relação ao botão */
+      padding: 15px 30px; /* Espaçamento interno do botão */
+      font-size: 18px; /* Tamanho do texto */
+      font-weight: bold; /* Deixa o texto em negrito */
+      color: #fff; /* Cor do texto em branco */
+      background: none; /* Nenhuma cor de fundo */
+      border: none; /* Remove a borda padrão do botão */
+      text-transform: uppercase; /* Transforma o texto em letras maiúsculas */
+      cursor: pointer; /* Adiciona o cursor de mão ao passar o mouse */
+      font-family: Arial, sans-serif; /* Fonte do texto */
+      overflow: hidden; /* Garante que os pseudo-elementos não fiquem visíveis fora dos limites do botão */
+    }
+
+    /* Pseudo-elementos que criam as bordas parciais */
+    .button::before,
+    .button::after {
+      content: ''; /* Cria conteúdo vazio para os pseudo-elementos */
+      position: absolute; /* Posiciona os elementos em relação ao botão */
+      width: 20px; /* Largura inicial das bordas parciais */
+      height: 20px; /* Altura inicial das bordas parciais */
+      border: 2px solid #00d8ff; /* Cor e espessura das bordas */
+      transition: all 0.4s ease; /* Adiciona uma transição suave para largura, altura e bordas */
+    }
+
+    /* Estilo da borda superior esquerda */
+    .button::before {
+      top: 0; /* Posiciona no topo do botão */
+      left: 0; /* Posiciona à esquerda do botão */
+      border-right: none; /* Remove a borda direita */
+      border-bottom: none; /* Remove a borda inferior */
+    }
+
+    /* Estilo da borda inferior direita */
+    .button::after {
+      bottom: 0; /* Posiciona na parte inferior do botão */
+      right: 0; /* Posiciona à direita do botão */
+      border-left: none; /* Remove a borda esquerda */
+      border-top: none; /* Remove a borda superior */
+    }
+
+    /* Efeito ao passar o mouse no botão */
+    .button:hover::before,
+    .button:hover::after {
+      width: 100%; /* As bordas passam a cobrir toda a largura do botão */
+      height: 100%; /* As bordas passam a cobrir toda a altura do botão */
+    }
+
+    /* Ajuste das bordas ao passar o mouse */
+    .button:hover::before {
+      border-right: 2px solid #00d8ff; /* Adiciona a borda direita */
+      border-bottom: 2px solid #00d8ff; /* Adiciona a borda inferior */
+    }
+
+    .button:hover::after {
+      border-left: 2px solid #00d8ff; /* Adiciona a borda esquerda */
+      border-top: 2px solid #00d8ff; /* Adiciona a borda superior */
+    }
+  </style>
+</head>
+<body>
+  <!-- Botão com classe que aplica os estilos definidos acima -->
+  <button class="button">Hover me!</button>
+</body>
+</html>
